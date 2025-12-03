@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engage Studios - Marketing Agency</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 5%;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #667eea;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            min-height: 90vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 15s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.5); opacity: 0.8; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease-out 0.2s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 1s ease-out 0.4s backwards;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Who We Serve Section */
+        .who-we-serve {
+            padding: 6rem 5%;
+            background: white;
+        }
+
+        .who-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .who-we-serve h2 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 4rem;
+            color: #333;
+        }
+
+        .personas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .persona-card {
+            background: #f8f9fa;
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 2px solid #e5e7eb;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .persona-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            border-color: #667eea;
+        }
+
+        .persona-card.featured-persona {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+        }
+
+        .persona-card.featured-persona h3,
+        .persona-card.featured-persona .persona-challenge {
+            color: white;
+        }
+
+        .persona-card.featured-persona .persona-benefits li {
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .persona-card.featured-persona .persona-benefits li::before {
+            color: white;
+        }
+
+        .persona-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .persona-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .persona-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .persona-challenge {
+            font-style: italic;
+            color: #666;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.03);
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .persona-card.featured-persona .persona-challenge {
+            background: rgba(255, 255, 255, 0.15);
+            border-left-color: white;
+        }
+
+        .persona-benefits {
+            list-style: none;
+            margin: 1.5rem 0;
+            padding: 0;
+        }
+
+        .persona-benefits li {
+            color: #555;
+            margin: 0.8rem 0;
+            padding-left: 1.8rem;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .persona-benefits li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .persona-cta {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.9rem 1.8rem;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .persona-cta:hover {
+            background: #5568d3;
+            transform: translateX(5px);
+        }
+
+        .persona-card.featured-persona .persona-cta {
+            background: white;
+            color: #667eea;
+        }
+
+        .persona-card.featured-persona .persona-cta:hover {
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 6rem 5%;
+            background: #0f1419;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 4rem;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .package-card {
+            background: #1a202c;
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: visible;
+        }
+
+        .package-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(59, 130, 246, 0.5);
+        }
+
+        .package-card.featured {
+            border: 2px solid #3b82f6;
+            position: relative;
+        }
+
+        .package-card.featured::before {
+            content: 'Most Popular';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #3b82f6;
+            color: white;
+            padding: 0.4rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .package-card.featured:hover {
+            border-color: #3b82f6;
+            box-shadow: 0 20px 60px rgba(59, 130, 246, 0.3);
+        }
+
+        .package-card.premium {
+            background: #1a202c;
+        }
+
+        .package-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: white;
+            font-weight: 600;
+        }
+
+        .package-ideal {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            min-height: 2.5rem;
+        }
+
+        .package-price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: white;
+            margin: 1rem 0 2rem 0;
+            display: flex;
+            align-items: baseline;
+            gap: 0.2rem;
+        }
+
+        .package-price .amount {
+            letter-spacing: -2px;
+        }
+
+        .package-price .period {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 400;
+        }
+
+        .package-button {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 2rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .package-button:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .package-card.featured .package-button {
+            background: #3b82f6;
+        }
+
+        .package-card.featured .package-button:hover {
+            background: #2563eb;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+        }
+
+        .package-features {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .package-features li {
+            color: rgba(255, 255, 255, 0.8);
+            margin: 1rem 0;
+            padding-left: 2rem;
+            position: relative;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .package-features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #3b82f6;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .package-badge {
+            display: none;
+        }
+
+        .package-subtitle {
+            display: none;
+        }
+
+        .package-section {
+            display: none;
+        }
+
+        .best-for {
+            display: none;
+        }
+
+        /* Add-Ons Section */
+        .addons {
+            padding: 6rem 5%;
+            background: #1a202c;
+        }
+
+        .addons .section-title {
+            color: white;
+        }
+
+        .addons .section-subtitle {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .addons-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .addon-category {
+            margin-bottom: 3rem;
+        }
+
+        .addon-category-title {
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid rgba(59, 130, 246, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .addon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .addon-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.75rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .addon-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(59, 130, 246, 0.5);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+        }
+
+        .addon-card h4 {
+            font-size: 1.1rem;
+            color: white;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .addon-card p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            min-height: 2.5rem;
+            line-height: 1.5;
+        }
+
+        .addon-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .about p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #666;
+            max-width: 900px;
+            margin: 0 auto 3rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat {
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        .services-overview {
+            margin-top: 5rem;
+            text-align: center;
+        }
+
+        .services-overview h3 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .services-grid-about {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .service-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .service-icon-about {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-item h4 {
+            font-size: 1.4rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .service-item p {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 5%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .contact-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1.2rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .contact-button.primary {
+            background: #25D366;
+            color: white;
+        }
+
+        .contact-button.primary:hover {
+            background: #20BA5A;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+        }
+
+        .contact-button.secondary {
+            background: white;
+            color: #667eea;
+        }
+
+        .contact-button.secondary:hover {
+            background: rgba(255, 255, 255, 0.95);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .button-icon {
+            font-size: 1.3rem;
+        }
+
+        .contact-note {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-top: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .section-title, .about h2, .contact h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">Engage Studios</div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Packages</a></li>
+            <li><a href="#addons">Add-Ons</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Build Your Brand. Win More Listings.</h1>
+            <p>Premium content & listing marketing for property agents who want to stand out in Singapore's competitive market.</p>
+            <a href="#contact" class="cta-button">Book Free Consultation</a>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <h2 class="section-title">Choose Your Package</h2>
+        <p class="section-subtitle">Flexible plans designed for real estate agents at every stage</p>
+        <div class="packages-grid">
+            <div class="package-card">
+                <h3>Starter Week</h3>
+                <div class="package-price">
+                    <span class="amount">$300</span>
+                </div>
+                <p class="package-ideal">Perfect for new agents building their brand</p>
+                <a href="#contact" class="package-button">Start Trial</a>
+                <ul class="package-features">
+                    <li>2 Short-Form Videos</li>
+                    <li>Filming + Editing + Captions</li>
+                    <li>1 Property Shoot</li>
+                    <li>1 Set Professional Photos</li>
+                    <li>1 3D Virtual Scan</li>
+                    <li>72-hour Delivery</li>
+                    <li>1 Revision Per Video</li>
+                    <li>5 Hook Ideas Included</li>
+                </ul>
+            </div>
+
+            <div class="package-card featured">
+                <h3>Growth Package</h3>
+                <div class="package-price">
+                    <span class="amount">$1,500</span>
+                    <span class="period">/month</span>
+                </div>
+                <p class="package-ideal">Ideal for established agents scaling up</p>
+                <a href="#contact" class="package-button">Book Consultation</a>
+                <ul class="package-features">
+                    <li>12 Short-Form Videos/Month</li>
+                    <li>Scripts, Hooks & Captions</li>
+                    <li>8 Property Shoots/Month</li>
+                    <li>8 Professional Photo Sets</li>
+                    <li>4 3D Virtual Scans</li>
+                    <li>Monthly Content Calendar</li>
+                    <li>Priority Scheduling</li>
+                    <li>2 Revisions Per Video</li>
+                    <li>Unlimited Content Ideas</li>
+                </ul>
+            </div>
+
+            <div class="package-card premium">
+                <h3>Agent Lead Engine</h3>
+                <div class="package-price">
+                    <span class="amount">$2,000</span>
+                    <span class="period">/month</span>
+                </div>
+                <p class="package-ideal">Built for high-volume agents & teams</p>
+                <a href="#contact" class="package-button">Book Consultation</a>
+                <ul class="package-features">
+                    <li>16 Strategic Videos/Month</li>
+                    <li>Lead-Focused Content Strategy</li>
+                    <li>8 Property Shoots + Photos</li>
+                    <li>4 3D Virtual Tours</li>
+                    <li>3 Meta Ad Campaigns</li>
+                    <li>WhatsApp/Landing Page Funnel</li>
+                    <li>Lead Tracking & Automation</li>
+                    <li>Monthly Strategy Call</li>
+                    <li>Performance Reporting</li>
+                    <li>VIP Priority Support</li>
+                    <li>Dedicated Account Manager</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="addons" id="addons">
+        <h2 class="section-title">Enhance Your Package</h2>
+        <p class="section-subtitle">Add-ons to supercharge your marketing and scale your business</p>
+        
+        <div class="addons-container">
+            <div class="addon-category">
+                <h3 class="addon-category-title">🏠 Listing Marketing Add-Ons</h3>
+                <div class="addon-grid">
+                    <div class="addon-card">
+                        <h4>Additional Property Shoot</h4>
+                        <p>Full video + photos</p>
+                        <div class="addon-price">$250–$350</div>
+                    </div>
+                    <div class="addon-card">
+                        <h4>Additional 3D Virtual Tour</h4>
+                        <p>Matterport-style scan</p>
+                        <div class="addon-price">$80–$120</div>
+                    </div>
+                    <div class="addon-card">
+                        <h4>Custom Listing Website</h4>
+                        <p>One-page showcase for the property</p>
+                        <div class="addon-price">$60–$100</div>
+                    </div>
+                    <div class="addon-card">
+                        <h4>Additional Photo Set Only</h4>
+                        <p>For tenancy or resale updates</p>
+                        <div class="addon-price">$60–$80</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="addon-category">
+                <h3 class="addon-category-title">🎥 Content Production Add-Ons</h3>
+                <div class="addon-grid">
+                    <div class="addon-card">
+                        <h4>Extra Short-Form Video</h4>
+                        <p>TikTok/Reels/FB</p>
+                        <div class="addon-price">$80–$120 each</div>
+                    </div>
+                    <div class="addon-card">
+                        <h4>Long-Form YouTube Edit</h4>
+                        <p>3–8 minutes</p>
+                        <div class="addon-price">$250–$350</div>
+                    </div>
+                    <div class="addon-card">
+                        <h4>Client Testimonial Video</h4>
+                        <p>Up to 2–3 clients</p>
+                        <div class="addon-price">$120–$200</div>
+                    </div>
+                    <div class="addon-card">
+                        <h4>Educational Script Pack</h4>
+                        <p>10 short-form video scripts</p>
+                        <div class="addon-price">$80–$120</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="addon-category">
+                <h3 class="addon-category-title">🚀 Lead-Generation Add-Ons</h3>
+                <div class="addon-grid">
+                    <div class="addon-card">
+                        <h4>Additional Meta Campaign</h4>
+                        <p>Extra boosted listing or lead-form campaign</p>
+                        <div class="addon-price">$150–$300/mo</div>
+                    </div>
+                    <div class="addon-card">
+                        <h4>TikTok Spark Ads Management</h4>
+                        <p>Monthly management</p>
+                        <div class="addon-price">$120–$180</div>
+                    </div>
+                    <div class="addon-card">
+                        <h4>Google Search Ads</h4>
+                        <p>Setup + monthly optimization</p>
+                        <div class="addon-price">$150 setup + $120/mo</div>
+                    </div>
+                    <div class="addon-card">
+                        <h4>WhatsApp Follow-Up Sequence</h4>
+                        <p>5–7 message templates + automation</p>
+                        <div class="addon-price">$40–$80</div>
+                    </div>
+                    <div class="addon-card">
+                        <h4>Custom Lead Funnel Build</h4>
+                        <p>Landing page → CRM → WhatsApp</p>
+                        <div class="addon-price">$120–$200</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="addon-category">
+                <h3 class="addon-category-title">🧰 Productivity & Convenience Add-Ons</h3>
+                <div class="addon-grid">
+                    <div class="addon-card">
+                        <h4>Priority Next-Day Editing</h4>
+                        <p>Rush delivery</p>
+                        <div class="addon-price">$40–$60 per video</div>
+                    </div>
+                    <div class="addon-card">
+                        <h4>"Agent Assistant Day"</h4>
+                        <p>Full day BTS + content capture</p>
+                        <div class="addon-price">$250–$400</div>
+                    </div>
+                    <div class="addon-card">
+                        <h4>Monthly Raw Footage Storage</h4>
+                        <p>Cloud backup on Drive/Dropbox</p>
+                        <div class="addon-price">$10–$20/mo</div>
+                    </div>
+                    <div class="addon-card">
+                        <h4>Monthly Analytics Deep Report</h4>
+                        <p>Lead quality, CPL, CTR, best hooks</p>
+                        <div class="addon-price">$80–$120</div>
+                    </div>
+                    <div class="addon-card">
+                        <h4>Competitor Analysis Snapshot</h4>
+                        <p>Top agents' ads, content & angles</p>
+                        <div class="addon-price">$60–$100</div>
+                    </div>
+                    <div class="addon-card">
+                        <h4>Quarterly Strategy Blueprint</h4>
+                        <p>Full 3-month growth plan</p>
+                        <div class="addon-price">$150–$300</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <h2>Why Property Agents Choose Engage Studios</h2>
+        <p>We understand the Singapore property market—and what it takes to stand out. Whether you're just starting out or managing a high volume of listings, we handle your entire media workflow from concept to delivery so you can focus on what you do best: closing deals.</p>
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Videos Delivered</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Active Agents</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">200+</div>
+                <div class="stat-label">Properties Marketed</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">24-72h</div>
+                <div class="stat-label">Average Delivery</div>
+            </div>
+        </div>
+        
+        <div class="services-overview">
+            <h3>What Sets Us Apart</h3>
+            <div class="services-grid-about">
+                <div class="service-item">
+                    <div class="service-icon-about">⚡</div>
+                    <h4>Fast Turnaround</h4>
+                    <p>Most videos delivered within 24-72 hours. No waiting weeks for content—we move at the speed your business needs.</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon-about">🎯</div>
+                    <h4>Property-Focused Scripts</h4>
+                    <p>Hook-first scripts optimized for the property niche. We know what works in real estate social media.</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon-about">📦</div>
+                    <h4>All-In-One Solution</h4>
+                    <p>From filming to editing, captions to 3D tours—we handle everything. One partner for your entire media workflow.</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon-about">💰</div>
+                    <h4>Flexible Pricing</h4>
+                    <p>Start with $300 trial or scale up to full monthly packages. Plans designed for every stage of your career.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2>Ready to Get Started?</h2>
+        <p>Book a free consultation or start your $300 Starter Week trial. Let's discuss how we can help you stand out and win more listings.</p>
+        <div class="contact-buttons">
+            <a href="https://wa.me/6512345678?text=Hi%2C%20I'm%20interested%20in%20starting%20a%20trial%20with%20Engage%20Studios" class="contact-button primary" target="_blank">
+                <span class="button-icon">💬</span> Message Us on WhatsApp
+            </a>
+            <a href="mailto:hello@engagestudios.sg?subject=Consultation%20Request&body=Hi%2C%20I'd%20like%20to%20book%20a%20consultation%20to%20discuss%20your%20packages." class="contact-button secondary">
+                <span class="button-icon">📧</span> Email for Consultation
+            </a>
+        </div>
+        <p class="contact-note">💡 Not sure which package? We'll help you choose the right fit during your consultation.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Engage Studios - Singapore Property Marketing & Creative Studio. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll animation to package cards
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.package-card').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = `all 0.6s ease-out ${index * 0.1}s`;
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
